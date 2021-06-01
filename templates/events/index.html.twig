@@ -1,3 +1,14 @@
-<h1>Hello world</h1>
-<p>Events are: </p>
-{{ events|join(', ', ' and ')  }}
+<h1>{{ events | length }} Events</h1>
+
+
+
+<ul>
+	{% for event in events %}
+		<li>{{ event }}</li>	
+	{% endfor %}
+</ul>
+
+
+{% for i in 'a'|upper..'z'|upper %}
+	{{ i }}
+{% endfor %}
