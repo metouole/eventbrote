@@ -1,0 +1,8 @@
+table events 
+	id
+	name
+	location
+	price decimal
+
+
+symfony console make: entity
