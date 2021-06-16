@@ -1,14 +1,11 @@
 <h1>{{ events | length }} Events</h1>
 
-
+{% if events is not empty %}
 
 <ul>
 	{% for event in events %}
-		<li>{{ event }}</li>	
+		<li>{{ event.getName }} - {{ event.getPrice }}</li>	
 	{% endfor %}
 </ul>
 
-
-{% for i in 'a'|upper..'z'|upper %}
-	{{ i }}
-{% endfor %}
+{% endif %}
