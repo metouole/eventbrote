@@ -33,6 +33,16 @@ class Event
      */
     private $price;
 
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $description;
+
+    /**
+     * @ORM\Column(type="datetime_immutable")
+     */
+    private $startsAt;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -77,5 +87,29 @@ class Event
     public function __toString(): string
     {
         return $this->getName();
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function getStartsAt(): ?\DateTimeImmutable
+    {
+        return $this->startsAt;
+    }
+
+    public function setStartsAt(\DateTimeImmutable $startsAt): self
+    {
+        $this->startsAt = $startsAt;
+
+        return $this;
     }
 }
