@@ -112,4 +112,14 @@ class Event
 
         return $this;
     }
+
+    /*
+    
+    retour si l'element est vrai ou faux
+     */
+
+    public function isFree():bool
+    {
+        return $this->getPrice() == 0 || is_null($this->getPrice());
+    }
 }

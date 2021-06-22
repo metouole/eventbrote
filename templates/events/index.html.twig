@@ -6,11 +6,15 @@
 	{% for event in events %}
 		<article>
 			<h2>{{ event.getName }}</h2>
-			<p>{{ event.description }}</p>
+			<p>{{ event.description|length > 35 ? event.description|slice(0, 35) ~ '...' : event.description }}</p>
+			<p>{{ event.description|u.truncate(38, '...', false) }}</p>
+
+
 			<ul>
 				<li>Lieu: {{ event.location }}</li>
-				<li> Price: $ {{ event.getPrice }}</li>
-				<li>Date: {{ event.startsAt|date('F d, Y \\a\\t h:i A') }}</li>
+				<li> Price:  {{ format_price(event) }}
+					</li>
+				<li>Date: {{ event.startsAt|dateTime }}</li>
 			</ul>
 		</article>
 			
