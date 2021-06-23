@@ -1,4 +1,10 @@
-<h1>{{ events | length }} Events</h1>
+
+{% extends 'layouts/base.html.twig' %}
+
+{% block title%} Discover all event | {{ parent() }} {% endblock %}
+
+{% block body %}
+<h1>{{ pluralize(events|length, 'event') }} </h1>
 
 {% if events is not empty %}
 
@@ -22,3 +28,5 @@
 </ul>
 
 {% endif %}
+
+{% endblock %}

@@ -23,8 +23,17 @@ class AppExtension extends AbstractExtension
     public function getFunctions(): array
     {
         return [
+            new TwigFunction('pluralize', [$this, 'pluralize']),
             new TwigFunction('format_price', [$this, 'format_price']),
         ];
+    }
+
+
+    public function pluralize(int $count, string $singular, ?string $plural = null): string
+    {
+        $plural ??= $singular . 's';
+        $string = $count === 1 ? $singular : $plural;
+        return "$count $string";
     }
 
     public function format_price(Event $event)
